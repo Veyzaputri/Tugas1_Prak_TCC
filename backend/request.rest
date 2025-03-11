@@ -1,4 +1,4 @@
-GET http://localhost:5000/users
+GET http://104.198.64.135:5000/users
 
 
 ###

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-
+import { BASE_URL } from "../utils";
 
 function AddNotes() {
     const [creator, setCreator] = useState("");
@@ -12,7 +12,7 @@ function AddNotes() {
     const saveUser = async (e) =>{
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/users',{
+            await axios.post('${BASE_URL}/users',{
                 creator,
                 title,
                 notes

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from "react-router-dom";
-import { BASE_URL } from "../utils";
+
 
 function EditNotes() {
     const [creator, setCreator] = useState("");
@@ -17,7 +17,7 @@ function EditNotes() {
     const updateUser = async (e) =>{
         e.preventDefault();
         try {
-            await axios.patch(`${BASE_URL}/users/${id}`,{
+            await axios.patch(`http://localhost:5000/users/${id}`,{
                 creator,
                 title,
                 notes
@@ -29,7 +29,7 @@ function EditNotes() {
     };
 
 const getUserById = async () =>{
-    const response = await axios.get(`${BASE_URL}/users/${id}`);
+    const response = await axios.get(`http://localhost:5000/users/${id}`);
     setCreator(response.data.creator);
     setTitle(response.data.title);
     setNotes(response.data.notes);
